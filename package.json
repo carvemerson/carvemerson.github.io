@@ -10,10 +10,14 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.64.1",
     "vite": "^4.3.0"
   }
 }
