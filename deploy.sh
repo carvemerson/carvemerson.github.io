@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-# This script is used to deploy the application to the server.
+git checkout gh-pages
+git pull origin gh-pages
+git merge main
+
 npm run build
 
-git add dist -f
+git add -A
 git commit -m "Deploy to gh-pages"
-git subtree push --prefix dist origin gh-pages
+git git push origin gh-pages
+git checkout main
