@@ -13,7 +13,7 @@
             </div>
             <div class="col-6 col-md-3 text-start mt-3">
                 <h6>HELLO</h6>
-                <h1>I'm <span class="text-danger">Emerson</span> Carvalho</h1>
+                <h1>I'm <span class="text-danger">Emerson</span> Carvalho!!</h1>
                 <h6>WEB DEVELOPER</h6>
                 <button class="btn btn-sm btn-danger text-white mt-5">Download CV</button>
             </div>
