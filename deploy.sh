@@ -2,7 +2,7 @@
 
 git checkout gh-pages
 git pull origin gh-pages
-git merge main
+git merge origin main
 
 npm run build
 
