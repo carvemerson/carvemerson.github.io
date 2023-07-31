@@ -15,7 +15,9 @@
                 <h6>HELLO</h6>
                 <h1>I'm <span class="text-danger">Emerson</span> Carvalho!!</h1>
                 <h6>WEB DEVELOPER</h6>
-                <button class="btn btn-sm btn-danger text-white mt-5">Download CV</button>
+                <a href="https://www.linkedin.com/in/emerson-bezerra-de-carvalho-76065ab4/" class="btn btn-sm btn-danger text-white mt-5" target="_blank">
+                    Download CV
+                </a>
             </div>
             <div class="col-6">
                 <img src="/images/person.png" alt="" class="img-fluid">
