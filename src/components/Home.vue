@@ -1,5 +1,5 @@
 <template>
-    <div class="container text-center bg-light">
+    <div id="home" class="container text-center bg-light">
         <div class="container row justify-content-center align-items-center">
             <div class="
                 col-12 align-self-center order-3
