@@ -30,6 +30,7 @@ export default {
             links: [
                 {name: "Home", href: "#home"},
                 {name: "About", href: "#about"},
+                {name: "Skills", href: "#skills"},
                 // {name: "Resume", href: "#resume"},
                 // {name: "Contact", href: "#contact"},
             ]

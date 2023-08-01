@@ -1,7 +1,7 @@
 <template>
     <v-container id="home">
         <v-row justify="center">
-            <v-card class="pa-5" color="grey-lighten-4">
+            <v-card class="pa-5" color="grey-lighten-4" width="1500">
                 <v-row>
                     <v-col class="ms-auto text-end" align-self="center">
                         <span class="text-caption">HELLO</span>

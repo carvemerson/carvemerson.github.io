@@ -19,11 +19,6 @@ const vuetify = createVuetify({
             mdi,
         },
     },
-    defaults: {
-        VCard: {
-            width: 1500,
-        },
-    },
 })
 
 createApp(App).use(vuetify).mount('#app')
