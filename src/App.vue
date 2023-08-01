@@ -1,21 +1,18 @@
 <template>
-    <Header/>
-    <Home/>
-    <About/>
-    <Resume/>
-    <Contact/>
-    <Footer/>
+    <v-app>
+        <AppHeader/>
+
+        <v-main>
+            <AppHome/>
+            <AppAbout/>
+            <AppSkills/>
+        </v-main>
+    </v-app>
 </template>
 
 <script setup>
-import Header from "./components/Header.vue";
-import Home from "./components/Home.vue";
-import About from "./components/About.vue";
-import Resume from "./components/Resume.vue";
-import Contact from "./components/Contact.vue";
-import Footer from "./components/Footer.vue";
+import AppHeader from "./components/AppHeader.vue";
+import AppHome from "./components/AppHome.vue";
+import AppAbout from "./components/AppAbout.vue";
+import AppSkills from "./components/AppSkills.vue";
 </script>
-
-<style scoped>
-
-</style>
