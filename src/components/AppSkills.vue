@@ -11,9 +11,9 @@
                     <CardSkill
                         :title="skill.title"
                         :image="skill.image"
-                        :value="skill.value"
                         :width="500"
                         :image-width="100"
+                        :href="skill.href"
                     />
                 </v-col>
             </v-row>
@@ -22,7 +22,7 @@
                     <CardSkill
                         :title="skill.title"
                         :image="skill.image"
-                        :value="skill.value"
+                        :href="skill.href"
                     />
                 </v-col>
             </v-row>
@@ -46,24 +46,27 @@ export default {
     data: () => {
         return {
             outstandingSkills:[
-                {title: "laravel", image: "/images/frameworks/laravel.png", value: 95},
-                {title: "vue", image: "/images/frameworks/vuejs.png", value: 95},
+                {title: "laravel", image: "/images/frameworks/laravel.png", href: "https://laravel.com/"},
+                {title: "vue", image: "/images/frameworks/vuejs.png", href: "https://vuejs.org/"},
             ],
             skills: [
-                {title: "php", image: "/images/frameworks/php.png", value: 95},
-                {title: "javascript", image: "/images/frameworks/javascript.png", value: 90},
-                {title: "HTML", image: "/images/frameworks/html.png", value: 80},
-                {title: "css", image: "/images/frameworks/css.png", value: 75},
-                {title: "bootstrap", image: "/images/frameworks/bootstrap.png", value: 80},
-                {title: "vuetify", image: "/images/frameworks/vuetify.png", value: 70},
-                {title: "mysql", image: "/images/frameworks/mysql.png", value: 75},
-                {title: "typescript", image: "/images/frameworks/typescript.png", value: 70},
-                {title: "c/c++", image: "/images/frameworks/c-plus-plus.png", value: 75},
-                {title: "dart", image: "/images/frameworks/dart.png", value: 75},
-                {title: "flutter", image: "/images/frameworks/flutter.png", value: 80},
-                {title: "angular", image: "/images/frameworks/angular.png", value: 75},
-                {title: "vitejs", image: "/images/frameworks/vitejs.png", value: 65},
-                {title: "docker", image: "/images/frameworks/docker.webp", value: 60},
+                {title: "php", image: "/images/frameworks/php.png", href: "https://www.php.net/"},
+                {title: "javascript", image: "/images/frameworks/javascript.png", href: "https://www.javascript.com/"},
+                {title: "HTML", image: "/images/frameworks/html.png", href: "https://developer.mozilla.org/en-US/docs/Web/HTML"},
+                {title: "css", image: "/images/frameworks/css.png", href: "https://developer.mozilla.org/en-US/docs/Web/CSS"},
+                {title: "bootstrap", image: "/images/frameworks/bootstrap.png", href: "https://getbootstrap.com/"},
+                {title: "vuetify", image: "/images/frameworks/vuetify.png", href: "https://vuetifyjs.com/"},
+                {title: "mysql", image: "/images/frameworks/mysql.png", href: "https://www.mysql.com/"},
+                {title: "typescript", image: "/images/frameworks/typescript.png", href: "https://www.typescriptlang.org/"},
+                {title: "c/c++", image: "/images/frameworks/c-plus-plus.png", href: "https://www.cplusplus.com/"},
+                {title: "dart", image: "/images/frameworks/dart.png", href: "https://dart.dev/"},
+                {title: "flutter", image: "/images/frameworks/flutter.png", href: "https://flutter.dev/"},
+                {title: "angular", image: "/images/frameworks/angular.png", href: "https://angular.io/"},
+                {title: "vitejs", image: "/images/frameworks/vitejs.png", href: "https://vitejs.dev/"},
+                {title: "git", image: "/images/frameworks/git.png", href: "https://git-scm.com/"},
+                {title: "github", image: "/images/frameworks/github.png", href: "https://github.com/"},
+                {title: 'firebase', image: "/images/frameworks/firebase.png", href: "https://firebase.google.com/"},
+                {title: "docker", image: "/images/frameworks/docker.webp", href: "https://www.docker.com/"},
             ],
         };
     },

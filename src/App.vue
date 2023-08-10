@@ -6,9 +6,9 @@
             <AppHome/>
             <AppAbout/>
             <AppSkills/>
+            <AppFooter/>
         </v-main>
 
-        <AppFooter/>
     </v-app>
 </template>
 
