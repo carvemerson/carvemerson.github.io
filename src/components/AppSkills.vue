@@ -3,7 +3,7 @@
         <v-card class="pa-5" width="1500" color="grey-lighten-4">
             <v-row>
                 <v-col>
-                    <h1 class="display-1">Skills</h1>
+                    <h1 class="display-1">Coding Skills</h1>
                 </v-col>
             </v-row>
             <v-row>

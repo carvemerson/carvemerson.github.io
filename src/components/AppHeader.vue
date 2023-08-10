@@ -21,6 +21,7 @@
                 v-for="link in links"
                 :key="link.name"
                 :href="link.href"
+                :prepend-icon="link.icon"
                 @click="autoClose()"
             >
                 <v-list-item-title>{{link.name}}</v-list-item-title>
@@ -29,7 +30,11 @@
     </v-navigation-drawer>
     <v-app-bar>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-app-bar-title><strong>Emerson Carvalho</strong></v-app-bar-title>
+        <v-app-bar-title>
+            <v-avatar color="red-darken-1" class="me-3">
+                EC
+            </v-avatar>
+        </v-app-bar-title>
     </v-app-bar>
 </template>
 
@@ -41,10 +46,10 @@ export default {
             drawer: null,
             selected: null,
             links: [
-                {name: "Home", href: "#home"},
-                {name: "About", href: "#about"},
-                {name: "Skills", href: "#skills"},
-                // {name: "Resume", href: "#resume"},
+                {name: "Home", href: "#home", icon: "mdi-home-outline"},
+                {name: "About", href: "#about", icon: "mdi-account-outline"},
+                {name: "Resume", href: "#resume", icon: "mdi-file-document-outline"},
+                {name: "Coding Skills", href: "#skills", icon: "mdi-code-braces"},
                 // {name: "Contact", href: "#contact"},
             ]
         };

@@ -4,11 +4,11 @@
             <v-card class="pa-5" color="grey-lighten-4" width="1500">
                 <v-row>
                     <v-col class="ms-auto text-end" align-self="center">
-                        <span class="text-caption">HELLO</span>
-                        <div class="text-h6 text-sm-h5  text-md-h4 font-weight-bold">I'm <span
-                            class="text-red">Emerson</span> Carvalho!!
+                        <span class="text-h6 text-sm-h5 text-md-h4">HELLO</span>
+                        <div class="text-h4 text-sm-h3 text-md-h2 font-weight-bold">
+                            I'm <span class="text-red">Emerson</span> Carvalho!!
                         </div>
-                        <div class="text-caption">WEB DEVELOPER</div>
+                        <div class="text-h6 text-sm-h5 text-md-h4">WEB DEVELOPER</div>
                         <v-btn
                             size="small"
                             variant="tonal"

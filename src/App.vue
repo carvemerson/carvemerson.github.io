@@ -5,6 +5,7 @@
         <v-main>
             <AppHome/>
             <AppAbout/>
+            <AppResume/>
             <AppSkills/>
             <AppFooter/>
         </v-main>
@@ -18,4 +19,5 @@ import AppHome from "./components/AppHome.vue";
 import AppAbout from "./components/AppAbout.vue";
 import AppSkills from "./components/AppSkills.vue";
 import AppFooter from "./components/AppFooter.vue";
+import AppResume from "./components/AppResume.vue";
 </script>
