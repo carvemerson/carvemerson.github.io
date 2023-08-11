@@ -1,14 +1,26 @@
 <template>
     <v-container id="skills" class="d-flex justify-center">
-        <v-card class="pa-5" width="1500" color="grey-lighten-4">
+        <v-card
+            class="pa-5"
+            width="1500"
+            color="grey-lighten-4"
+        >
             <v-row>
                 <v-col>
-                    <h1 class="display-1">Coding Skills</h1>
+                    <h1 class="display-1">
+                        Coding Skills
+                    </h1>
                 </v-col>
             </v-row>
             <v-row>
-                <v-col v-for="skill in outstandingSkills" cols="6" sm="12" md="6">
-                    <CardSkill
+                <v-col
+                    v-for="skill in outstandingSkills"
+                    :key="skill.title"
+                    cols="6"
+                    sm="12"
+                    md="6"
+                >
+                    <card-skill
                         :title="skill.title"
                         :image="skill.image"
                         :width="500"
@@ -18,8 +30,15 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col  v-for="skill in skills" cols="4" sm="6" md="3" lg="2">
-                    <CardSkill
+                <v-col
+                    v-for="skill in skills"
+                    :key="skill.title"
+                    cols="4"
+                    sm="6"
+                    md="3"
+                    lg="2"
+                >
+                    <card-skill
                         :title="skill.title"
                         :image="skill.image"
                         :href="skill.href"
@@ -27,20 +46,13 @@
                 </v-col>
             </v-row>
         </v-card>
-
     </v-container>
 </template>
 <script>
 import CardSkill from "./CardSkill.vue";
-import {sk} from "vuetify/locale";
 
 export default {
     name: 'AppHome',
-    computed: {
-        sk() {
-            return sk
-        }
-    },
     components: {CardSkill},
 
     data: () => {
@@ -49,6 +61,7 @@ export default {
                 {title: "laravel", image: "/images/frameworks/laravel.png", href: "https://laravel.com/"},
                 {title: "vue", image: "/images/frameworks/vuejs.png", href: "https://vuejs.org/"},
             ],
+
             skills: [
                 {title: "php", image: "/images/frameworks/php.png", href: "https://www.php.net/"},
                 {title: "javascript", image: "/images/frameworks/javascript.png", href: "https://www.javascript.com/"},
@@ -70,5 +83,5 @@ export default {
             ],
         };
     },
-}
+};
 </script>

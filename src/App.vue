@@ -1,15 +1,14 @@
 <template>
     <v-app>
-        <AppHeader/>
+        <app-header />
 
         <v-main>
-            <AppHome/>
-            <AppAbout/>
-            <AppResume/>
-            <AppSkills/>
-            <AppFooter/>
+            <app-home />
+            <app-about />
+            <app-resume />
+            <app-skills />
+            <app-footer />
         </v-main>
-
     </v-app>
 </template>
 

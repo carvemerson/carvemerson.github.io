@@ -9,10 +9,10 @@
                 class="mx-4"
                 :icon="icon"
                 variant="text"
-            ></v-btn>
+            />
         </div>
 
-        <v-divider></v-divider>
+        <v-divider />
 
         <div>
             {{ new Date().getFullYear() }} — <strong>EBC Software Development</strong>
@@ -29,5 +29,5 @@ export default {
             'mdi-instagram',
         ],
     }),
-}
+};
 </script>

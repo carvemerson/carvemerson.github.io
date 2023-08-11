@@ -16,6 +16,13 @@
   "devDependencies": {
     "@mdi/font": "^7.2.96",
     "@vitejs/plugin-vue": "^4.1.0",
+    "eslint": "^8.47.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.17.0",
     "sass": "^1.64.1",
     "vite": "^4.3.0"
   }

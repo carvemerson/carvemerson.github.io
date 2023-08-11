@@ -6,14 +6,18 @@
                     <v-img
                         src="images/photo.jpg"
                         alt="John"
-                    ></v-img>
+                    />
                 </v-avatar>
-                <div class="text-h6"> Emerson Carvalho</div>
-                <div class="text-subtitle-1"> carvemerson@gmail.com </div>
+                <div class="text-h6">
+                    Emerson Carvalho
+                </div>
+                <div class="text-subtitle-1">
+                    carvemerson@gmail.com
+                </div>
             </v-list-item>
         </v-list>
 
-        <v-divider></v-divider>
+        <v-divider />
         <v-list>
             <v-list-subheader>NAVIGATION</v-list-subheader>
 
@@ -24,12 +28,12 @@
                 :prepend-icon="link.icon"
                 @click="autoClose()"
             >
-                <v-list-item-title>{{link.name}}</v-list-item-title>
+                <v-list-item-title>{{ link.name }}</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
     <v-app-bar>
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="drawer = !drawer" />
         <v-app-bar-title>
             <v-avatar color="red-darken-1" class="me-3">
                 EC
@@ -51,14 +55,14 @@ export default {
                 {name: "Resume", href: "#resume", icon: "mdi-file-document-outline"},
                 {name: "Coding Skills", href: "#skills", icon: "mdi-code-braces"},
                 // {name: "Contact", href: "#contact"},
-            ]
+            ],
         };
     },
 
     computed: {
         permanent() {
             return !this.$vuetify.display.mobile;
-        }
+        },
     },
 
     methods: {
@@ -66,8 +70,8 @@ export default {
             if (!this.permanent) {
                 this.drawer = false;
             }
-        }
-    }
-}
+        },
+    },
+};
 
 </script>

@@ -4,10 +4,12 @@
             <v-card elevation="0" width="1500">
                 <v-row>
                     <v-col cols="12" md="6">
-                        <div class="font-weight-bold text-h4 ml-2">Education</div>
+                        <div class="font-weight-bold text-h4 ml-2">
+                            Education
+                        </div>
 
-                        <v-hover v-for="education in educationInfo">
-                            <template v-slot:default="{ isHovering, props }">
+                        <v-hover v-for="education in educationInfo" :key="education.title">
+                            <template #default="{ isHovering, props }">
                                 <v-card
                                     v-bind="props"
                                     class="ma-5"
@@ -22,8 +24,6 @@
                                             >
                                                 {{ education.date }}
                                             </v-chip>
-
-
                                         </v-card-title>
 
                                         <v-card-text>
@@ -38,11 +38,12 @@
                         </v-hover>
                     </v-col>
                     <v-col cols="12" md="6">
-                        <div class="font-weight-bold text-h4 ml-2">Experience</div>
+                        <div class="font-weight-bold text-h4 ml-2">
+                            Experience
+                        </div>
 
-
-                        <v-hover v-for="experience in experienceInfo">
-                            <template v-slot:default="{ isHovering, props }">
+                        <v-hover v-for="experience in experienceInfo" :key="experience.title">
+                            <template #default="{ isHovering, props }">
                                 <v-card
                                     v-bind="props"
                                     class="ma-5"
@@ -57,8 +58,6 @@
                                             >
                                                 {{ experience.date }}
                                             </v-chip>
-
-
                                         </v-card-title>
 
                                         <v-card-text>
@@ -113,7 +112,7 @@ export default {
                     subtitle: "Software Engineer",
                 },
             ],
-        }
+        };
     },
-}
+};
 </script>

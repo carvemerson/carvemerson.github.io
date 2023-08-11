@@ -1,9 +1,17 @@
 <template>
     <v-container id="about">
         <v-row justify="center">
-            <v-card class="pa-5 mt-5" elevation="0" width="1500">
+            <v-card
+                class="pa-5 mt-5"
+                elevation="0"
+                width="1500"
+            >
                 <v-row>
-                    <v-col cols="12" sm="6" align-self="center">
+                    <v-col
+                        cols="12"
+                        sm="6"
+                        align-self="center"
+                    >
                         <div class="text-h6 text-sm-h5  text-md-h4 font-weight-bold mb-5">
                             About me
                         </div>
@@ -33,16 +41,21 @@
 
                     <v-col cols="12" sm="6">
                         <v-row class="mt-3">
-                            <v-col v-for="about in aboutInfo" cols="12" md="6">
+                            <v-col
+                                v-for="about in aboutInfo"
+                                :key="about.title"
+                                cols="12"
+                                md="6"
+                            >
                                 <v-hover>
-                                    <template v-slot:default="{ isHovering, props }">
+                                    <template #default="{ isHovering, props }">
                                         <v-card
                                             class="mx-auto"
                                             v-bind="props"
                                             :prepend-icon="about.icon"
                                             :elevation="isHovering ? 10 : 2"
                                         >
-                                            <template v-slot:title>
+                                            <template #title>
                                                 {{ about.title }}
                                             </template>
 
@@ -87,8 +100,8 @@ export default {
                     text: "Ride a bike and play with my kids",
                     icon: "mdi-gamepad-variant",
                 },
-            ]
+            ],
         };
-    }
-}
+    },
+};
 </script>

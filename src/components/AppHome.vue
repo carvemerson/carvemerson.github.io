@@ -2,7 +2,7 @@
     <v-container id="home">
         <v-row justify="center">
             <v-hover>
-                <template v-slot:default="{ isHovering, props }">
+                <template #default="{ isHovering, props }">
                     <v-card
                         v-bind="props"
                         class="pa-5 mt-5"
@@ -16,7 +16,9 @@
                                 <div class="text-h4 text-sm-h3 text-md-h2 font-weight-bold">
                                     I'm <span class="text-red">Emerson</span> Carvalho!!
                                 </div>
-                                <div class="text-h6 text-sm-h5 text-md-h4">WEB DEVELOPER</div>
+                                <div class="text-h6 text-sm-h5 text-md-h4">
+                                    WEB DEVELOPER
+                                </div>
                                 <v-btn
                                     size="small"
                                     variant="tonal"
@@ -36,7 +38,7 @@
                                     <v-img
                                         src="/images/photo.jpg"
                                         cover="true"
-                                    ></v-img>
+                                    />
                                 </v-card>
                             </v-col>
                         </v-row>
