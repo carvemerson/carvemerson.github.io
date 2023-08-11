@@ -7,7 +7,7 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col v-for="skill in outstandingSkills" cols="12" md="6">
+                <v-col v-for="skill in outstandingSkills" cols="6" sm="12" md="6">
                     <CardSkill
                         :title="skill.title"
                         :image="skill.image"
@@ -18,7 +18,7 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col  v-for="skill in skills" cols="12" sm="6" md="3">
+                <v-col  v-for="skill in skills" cols="4" sm="6" md="3" lg="2">
                     <CardSkill
                         :title="skill.title"
                         :image="skill.image"

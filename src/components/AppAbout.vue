@@ -1,17 +1,24 @@
 <template>
     <v-container id="about">
         <v-row justify="center">
-            <v-card class="pa-5" elevation="0" width="1500">
+            <v-card class="pa-5 mt-5" elevation="0" width="1500">
                 <v-row>
                     <v-col cols="12" sm="6" align-self="center">
                         <div class="text-h6 text-sm-h5  text-md-h4 font-weight-bold mb-5">
                             About me
                         </div>
                         <div class="text-body-1 my-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies mauris sed diam placerat, quis ornare massa dapibus. Vivamus eu cursus nulla. Mauris congue magna mauris, sit amet rutrum mi placerat quis. Donec sed quam et lectus auctor tincidunt vel in erat. Donec nec ullamcorper sem, sed faucibus nunc. Donec.
+                            I'm a developer with more than 5 years of experience in web development.
+                            I have a bachelor degree in Computer Science and a master degree on Computer Systems.
+                            During my academic life, one of my hobbies was participating in programming competitions and
+                            solving computational problems.
+                            My end course project was with focus on multi objective optimization and algorithms
+                            optimization
                         </div>
                         <div class="text-body-1 my-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies mauris sed diam placerat, quis ornare massa dapibus. Vivamus eu cursus nulla.
+                            I have worked with many technologies, such as PHP, Java, Javascript, Typescript, HTML, CSS,
+                            MySQL, C/C++ and more.
+                            Currently I'm focused on web development using Vue.js and Laravel.
                         </div>
                         <v-btn
                             size="small"
@@ -22,25 +29,29 @@
                         >
                             Contact me
                         </v-btn>
-
-
                     </v-col>
 
                     <v-col cols="12" sm="6">
                         <v-row class="mt-3">
                             <v-col v-for="about in aboutInfo" cols="12" md="6">
-                                <v-card
-                                    class="mx-auto"
-                                    :prepend-icon="about.icon"
-                                >
-                                    <template v-slot:title>
-                                        {{ about.title }}
-                                    </template>
+                                <v-hover>
+                                    <template v-slot:default="{ isHovering, props }">
+                                        <v-card
+                                            class="mx-auto"
+                                            v-bind="props"
+                                            :prepend-icon="about.icon"
+                                            :elevation="isHovering ? 10 : 2"
+                                        >
+                                            <template v-slot:title>
+                                                {{ about.title }}
+                                            </template>
 
-                                    <v-card-text>
-                                        {{ about.text }}
-                                    </v-card-text>
-                                </v-card>
+                                            <v-card-text>
+                                                {{ about.text }}
+                                            </v-card-text>
+                                        </v-card>
+                                    </template>
+                                </v-hover>
                             </v-col>
                         </v-row>
                     </v-col>
@@ -73,7 +84,7 @@ export default {
                 },
                 {
                     title: "Hobbies",
-                    text: "Cycling, Games, Movies",
+                    text: "Ride a bike and play with my kids",
                     icon: "mdi-gamepad-variant",
                 },
             ]

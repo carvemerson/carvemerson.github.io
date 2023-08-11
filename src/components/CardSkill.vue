@@ -9,7 +9,7 @@
                     :max-width="imageWidth"
                     :src="image"
                 ></v-img>
-                <div class="text-button font-weight-bold">{{title}}</div>
+                <div class="text-button font-weight-bold d-none d-sm-inline">{{title}}</div>
             </div>
         </v-card>
     </v-hover>

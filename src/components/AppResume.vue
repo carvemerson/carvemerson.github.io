@@ -6,54 +6,71 @@
                     <v-col cols="12" md="6">
                         <div class="font-weight-bold text-h4 ml-2">Education</div>
 
-                        <v-card v-for="education in educationInfo" class="ma-2" elevation="2">
-                            <v-card-item>
-                                <v-card-title>
-                                    <v-chip
-                                        class="ma-2"
-                                        color="red"
-                                        text-color="white"
-                                    >
-                                        {{ education.date }}
-                                    </v-chip>
+                        <v-hover v-for="education in educationInfo">
+                            <template v-slot:default="{ isHovering, props }">
+                                <v-card
+                                    v-bind="props"
+                                    class="ma-5"
+                                    :elevation="isHovering ? 10 : 2"
+                                >
+                                    <v-card-item>
+                                        <v-card-title>
+                                            <v-chip
+                                                class="ma-2"
+                                                color="red"
+                                                text-color="white"
+                                            >
+                                                {{ education.date }}
+                                            </v-chip>
 
 
-                                </v-card-title>
+                                        </v-card-title>
 
-                                <v-card-text>
-                                    <div class="text-h6 ">
-                                        {{ education.title }}
-                                    </div>
-                                    {{ education.subtitle }}
-                                </v-card-text>
-                            </v-card-item>
-                        </v-card>
+                                        <v-card-text>
+                                            <div class="text-h6 ">
+                                                {{ education.title }}
+                                            </div>
+                                            {{ education.subtitle }}
+                                        </v-card-text>
+                                    </v-card-item>
+                                </v-card>
+                            </template>
+                        </v-hover>
                     </v-col>
                     <v-col cols="12" md="6">
                         <div class="font-weight-bold text-h4 ml-2">Experience</div>
 
-                        <v-card v-for="experience in experienceInfo" class="ma-2" elevation="2">
-                            <v-card-item>
-                                <v-card-title>
-                                    <v-chip
-                                        class="ma-2"
-                                        color="red"
-                                        text-color="white"
-                                    >
-                                        {{ experience.date }}
-                                    </v-chip>
+
+                        <v-hover v-for="experience in experienceInfo">
+                            <template v-slot:default="{ isHovering, props }">
+                                <v-card
+                                    v-bind="props"
+                                    class="ma-5"
+                                    :elevation="isHovering ? 10 : 2"
+                                >
+                                    <v-card-item>
+                                        <v-card-title>
+                                            <v-chip
+                                                class="ma-2"
+                                                color="red"
+                                                text-color="white"
+                                            >
+                                                {{ experience.date }}
+                                            </v-chip>
 
 
-                                </v-card-title>
+                                        </v-card-title>
 
-                                <v-card-text>
-                                    <div class="text-h6 ">
-                                        {{ experience.title }}
-                                    </div>
-                                    {{ experience.subtitle }}
-                                </v-card-text>
-                            </v-card-item>
-                        </v-card>
+                                        <v-card-text>
+                                            <div class="text-h6 ">
+                                                {{ experience.title }}
+                                            </div>
+                                            {{ experience.subtitle }}
+                                        </v-card-text>
+                                    </v-card-item>
+                                </v-card>
+                            </template>
+                        </v-hover>
                     </v-col>
                 </v-row>
             </v-card>
