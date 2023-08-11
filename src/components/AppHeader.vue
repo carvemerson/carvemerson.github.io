@@ -2,9 +2,9 @@
     <v-navigation-drawer v-model="drawer" :permanent="permanent">
         <v-list>
             <v-list-item>
-                <v-avatar size="7rem">
+                <v-avatar size="6rem">
                     <v-img
-                        src="images/person-avatar.svg"
+                        src="images/photo.jpg"
                         alt="John"
                     ></v-img>
                 </v-avatar>

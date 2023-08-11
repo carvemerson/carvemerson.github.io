@@ -3,7 +3,7 @@
         <v-row justify="center">
             <v-card class="pa-5" elevation="0" width="1500">
                 <v-row>
-                    <v-col cols="12" sm="6" class="order-0 order-sm-1" align-self="center">
+                    <v-col cols="12" sm="6" align-self="center">
                         <div class="text-h6 text-sm-h5  text-md-h4 font-weight-bold mb-5">
                             About me
                         </div>
@@ -23,6 +23,10 @@
                             Contact me
                         </v-btn>
 
+
+                    </v-col>
+
+                    <v-col cols="12" sm="6">
                         <v-row class="mt-3">
                             <v-col v-for="about in aboutInfo" cols="12" md="6">
                                 <v-card
@@ -39,13 +43,6 @@
                                 </v-card>
                             </v-col>
                         </v-row>
-                    </v-col>
-
-                    <v-col cols="12" sm="6" class="order-1 order-sm-0">
-                        <v-img
-                            max-width="500"
-                            src="/images/person.png"
-                        />
                     </v-col>
                 </v-row>
             </v-card>

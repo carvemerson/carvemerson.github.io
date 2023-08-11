@@ -21,10 +21,20 @@
                     </v-col>
 
                     <v-col>
-                        <v-img
-                            max-width="500"
-                            src="/images/person.png"
-                        />
+<!--                        <v-img-->
+<!--                            max-width="500"-->
+<!--                            src="/images/photo.jpg"-->
+<!--                        />-->
+
+                        <v-card
+                            class="mx-auto"
+                            max-width="400"
+                        >
+                            <v-img
+                                src="/images/photo.jpg"
+                                cover
+                            ></v-img>
+                        </v-card>
                     </v-col>
                 </v-row>
             </v-card>
