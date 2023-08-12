@@ -80,6 +80,7 @@ export default {
                 {title: "github", image: "/images/frameworks/github.png", href: "https://github.com/"},
                 {title: 'firebase', image: "/images/frameworks/firebase.png", href: "https://firebase.google.com/"},
                 {title: "docker", image: "/images/frameworks/docker.webp", href: "https://www.docker.com/"},
+
             ],
         };
     },
