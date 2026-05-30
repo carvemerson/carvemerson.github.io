@@ -6,9 +6,24 @@
         <div
             v-reveal
             class="reveal pe__well"
+            :class="{ 'pe__well--shot': project.thumb }"
             aria-hidden="true"
         >
-            <span class="pe__well-index">{{ project.index }}</span>
+            <img
+                v-if="project.thumb"
+                class="pe__shot"
+                :src="project.thumb"
+                alt=""
+                loading="lazy"
+                decoding="async"
+            >
+            <span
+                v-else
+                class="pe__well-empty"
+            >
+                <span class="pe__well-index">{{ project.index }}</span>
+                <span class="pe__well-note">{{ project.preview || 'No public preview' }}</span>
+            </span>
             <span class="pe__well-mark" />
         </div>
 
@@ -67,14 +82,18 @@ defineProps({
 
 <style scoped>
 .pe {
+    --well-w: clamp(9rem, 24vw, 20rem);
     display: grid;
-    grid-template-columns: clamp(8rem, 22vw, 16rem) minmax(0, 1fr);
+    grid-template-columns: var(--well-w) minmax(0, 1fr);
     gap: clamp(1.5rem, 4vw, 3.5rem);
     align-items: center;
     padding: clamp(2rem, 4vw, 3rem) 0;
     border-top: 1px solid var(--hairline);
 }
 .pe:last-child { border-bottom: 1px solid var(--hairline); }
+
+/* alternating rhythm: swap the columns AND reorder the well */
+.pe--right { grid-template-columns: minmax(0, 1fr) var(--well-w); }
 .pe--right .pe__well { order: 2; }
 
 .pe__well {
@@ -87,13 +106,49 @@ defineProps({
     overflow: hidden;
     transition: border-color 0.3s var(--ease);
 }
+
+/* screenshot wells: duotone at rest, full colour on hover */
+.pe__shot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(1) contrast(1.04) brightness(0.92);
+    transition: filter 0.5s var(--ease), transform 0.6s var(--ease);
+}
+.pe__well--shot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-deep), transparent 62%);
+    mix-blend-mode: var(--duotone-mix);
+    opacity: var(--duotone-opacity, 0.6);
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+}
+
+.pe__well-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    z-index: 1;
+}
 .pe__well-index {
     font-family: var(--font-mono);
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     letter-spacing: 0.1em;
     color: var(--ink-faint);
     transition: color 0.3s var(--ease);
-    z-index: 1;
+}
+.pe__well-note {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
 }
 .pe__well-mark {
     position: absolute;
@@ -175,12 +230,15 @@ defineProps({
     .pe:hover .pe__well { border-color: var(--accent); }
     .pe:hover .pe__well-index { color: var(--accent); }
     .pe:hover .pe__well-mark { opacity: 1; }
+    .pe:hover .pe__shot { filter: none; transform: scale(1.03); }
+    .pe:hover .pe__well--shot::after { opacity: 0; }
     .pe__title-link:hover { transform: translateX(10px); color: var(--accent); }
     .pe__title-link:hover .pe__view { opacity: 1; transform: translateX(0); }
 }
 
 @media (max-width: 760px) {
-    .pe { grid-template-columns: 1fr; gap: 1.4rem; }
+    .pe,
+    .pe--right { grid-template-columns: 1fr; gap: 1.4rem; }
     .pe--right .pe__well { order: 0; }
     .pe__well { aspect-ratio: 16 / 9; }
 }

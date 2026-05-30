@@ -83,6 +83,7 @@ const projects = [
             'A solo-built, mobile-first scheduling SaaS for service businesses — one Flutter codebase across iOS, Android and Web on an event-driven Firebase backend. Three roles, a friction-minimized booking funnel, exact-time reminders fanned across push & WhatsApp, and a server-enforced subscription system with data-preserving downgrades.',
         tags: ['Flutter', 'Dart', 'Firebase', 'Cloud Functions', 'TypeScript'],
         href: 'https://agendasf.com.br',
+        thumb: '/images/projects/agendasf.jpg',
     },
     {
         index: 'P-05',
@@ -92,6 +93,7 @@ const projects = [
             'A complete event-management CRM built solo for a volunteer cycling community that had been running on spreadsheets and WhatsApp. Tiered time-based pricing with auto-opening registration windows, a full PIX payment flow with audit history, sponsor tiers, a merch store, and a real-time revenue & capacity dashboard — localized for Brazilian Portuguese.',
         tags: ['Laravel', 'Filament', 'Livewire', 'MySQL', 'Tailwind'],
         href: 'https://giro-mipibu.com.br/',
+        thumb: '/images/projects/giro-mipibu.jpg',
     },
 ];
 </script>
