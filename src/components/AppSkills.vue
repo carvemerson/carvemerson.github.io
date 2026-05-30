@@ -64,13 +64,32 @@ const groups = [
             { name: 'PHP', icon: 'php', href: 'https://www.php.net/' },
             { name: 'TypeScript', icon: 'typescript', href: 'https://www.typescriptlang.org/' },
             { name: 'JavaScript', icon: 'javascript', href: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+            { name: 'Dart', icon: 'dart', href: 'https://dart.dev/' },
             { name: 'C / C++', icon: 'cpp', href: 'https://isocpp.org/' },
+        ],
+    },
+    {
+        title: 'Web Frameworks',
+        items: [
+            { name: 'Filament', icon: 'filament', href: 'https://filamentphp.com/' },
+            { name: 'Livewire', icon: 'livewire', href: 'https://livewire.laravel.com/' },
+            { name: 'Inertia', icon: 'inertia', href: 'https://inertiajs.com/' },
+            { name: 'Tailwind', icon: 'tailwind', href: 'https://tailwindcss.com/' },
+        ],
+    },
+    {
+        title: 'Mobile',
+        items: [
+            { name: 'Flutter', icon: 'flutter', href: 'https://flutter.dev/' },
+            { name: 'Firebase', icon: 'firebase', href: 'https://firebase.google.com/' },
         ],
     },
     {
         title: 'Data & Infra',
         items: [
+            { name: 'PostgreSQL', icon: 'postgres', href: 'https://www.postgresql.org/' },
             { name: 'MySQL', icon: 'mysql', href: 'https://www.mysql.com/' },
+            { name: 'Redis', icon: 'redis', href: 'https://redis.io/' },
             { name: 'Docker', icon: 'docker', href: 'https://www.docker.com/' },
             { name: 'Cloud', icon: 'cloud', href: 'https://cloud.google.com/' },
         ],
@@ -79,6 +98,8 @@ const groups = [
         title: 'Tooling',
         items: [
             { name: 'Git', icon: 'git', href: 'https://git-scm.com/' },
+            { name: 'GitHub Actions', icon: 'githubactions', href: 'https://github.com/features/actions' },
+            { name: 'Vite', icon: 'vite', href: 'https://vite.dev/' },
         ],
     },
 ];

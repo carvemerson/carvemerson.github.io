@@ -12,6 +12,7 @@
             aria-hidden="true"
         >
             <svg
+                v-if="path"
                 viewBox="0 0 24 24"
                 width="1em"
                 height="1em"
@@ -22,6 +23,10 @@
                     fill="currentColor"
                 />
             </svg>
+            <span
+                v-else
+                class="sm__dot"
+            />
         </span>
         <span class="sm__name">{{ skill.name }}</span>
     </a>
@@ -55,6 +60,13 @@ const path = computed(() => (icons[props.skill.icon] || {}).path || '');
 }
 .sm__name {
     font-size: var(--fs-small);
+}
+.sm__dot {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    background: currentColor;
+    transform: rotate(45deg);
 }
 
 .sm--large {
