@@ -59,7 +59,6 @@ const core = [
 const groups = [
     {
         title: 'Languages',
-        note: '// competitive-programming background',
         items: [
             { name: 'PHP', icon: 'php', href: 'https://www.php.net/' },
             { name: 'TypeScript', icon: 'typescript', href: 'https://www.typescriptlang.org/' },

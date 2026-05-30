@@ -98,10 +98,11 @@ const links = [
     { num: '02', id: 'work', href: '#work', label: 'Work' },
     { num: '03', id: 'experience', href: '#experience', label: 'Experience' },
     { num: '04', id: 'skills', href: '#skills', label: 'Skills' },
-    { num: '05', id: 'contact', href: '#contact', label: 'Contact' },
+    { num: '05', id: 'algorithms', href: '#algorithms', label: 'Algorithms' },
+    { num: '06', id: 'contact', href: '#contact', label: 'Contact' },
 ];
 
-const spyIds = ['home', 'about', 'work', 'experience', 'skills', 'contact'];
+const spyIds = ['home', 'about', 'work', 'experience', 'skills', 'algorithms', 'contact'];
 const activeId = ref('home');
 const drawerOpen = ref(false);
 const condensed = computed(() => activeId.value !== 'home');

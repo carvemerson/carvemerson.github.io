@@ -39,7 +39,7 @@ const year = new Date().getFullYear();
 const titleBlock = [
     { k: 'Drawn by', v: 'E. Carvalho' },
     { k: 'Scale', v: '1 : 1' },
-    { k: 'Sheet', v: '06 of 06' },
+    { k: 'Sheet', v: '07 of 07' },
     { k: 'Date', v: '2026' },
     { k: 'Location', v: 'RN, BR' },
     { k: 'Rev.', v: 'A' },

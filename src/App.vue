@@ -26,6 +26,7 @@
         <app-work />
         <app-experience />
         <app-skills />
+        <app-algorithms />
         <app-contact />
     </main>
 
@@ -40,6 +41,7 @@ import AppAbout from './components/AppAbout.vue';
 import AppWork from './components/AppWork.vue';
 import AppExperience from './components/AppExperience.vue';
 import AppSkills from './components/AppSkills.vue';
+import AppAlgorithms from './components/AppAlgorithms.vue';
 import AppContact from './components/AppContact.vue';
 import AppFooter from './components/AppFooter.vue';
 </script>

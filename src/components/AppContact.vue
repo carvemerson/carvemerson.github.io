@@ -9,7 +9,7 @@
         />
 
         <section-heading
-            folio="05"
+            folio="06"
             kicker="Contact"
             title="Let's set the next page."
         />
