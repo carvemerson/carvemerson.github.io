@@ -17,8 +17,7 @@
 
             <div class="colophon__baseline">
                 <p class="colophon__set">
-                    Set in Fraunces, Newsreader &amp; JetBrains Mono · Built with
-                    Vue 3 + Vite — no frameworks harmed.
+                    Set in Fraunces, Newsreader &amp; JetBrains Mono.
                 </p>
                 <p class="colophon__run">
                     © {{ year }} Emerson Carvalho
