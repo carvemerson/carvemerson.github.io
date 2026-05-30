@@ -13,7 +13,13 @@
         </div>
 
         <div class="pe__body">
-            <span class="pe__index">{{ project.index }}</span>
+            <p class="pe__meta">
+                <span class="pe__index">{{ project.index }}</span>
+                <span
+                    v-if="project.meta"
+                    class="pe__context"
+                >{{ project.meta }}</span>
+            </p>
             <h3 class="pe__title">
                 <component
                     :is="project.href ? 'a' : 'span'"
@@ -98,12 +104,25 @@ defineProps({
 }
 
 .pe__body { min-width: 0; }
+.pe__meta {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem 1ch;
+    margin: 0;
+}
 .pe__index {
     font-family: var(--font-mono);
     font-size: var(--fs-mono);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     color: var(--accent);
+}
+.pe__context {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
 }
 .pe__title {
     margin: 0.5rem 0 0.7rem;
