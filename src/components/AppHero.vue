@@ -45,6 +45,13 @@
                         class="btn btn--ghost"
                         href="#contact"
                     >Get in touch</a>
+                    <a
+                        class="btn btn--ghost"
+                        href="https://www.linkedin.com/in/carvemerson/"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="View CV on LinkedIn (opens in new window)"
+                    >View CV ↗</a>
                 </div>
             </div>
 
