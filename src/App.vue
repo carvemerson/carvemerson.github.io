@@ -1,22 +1,49 @@
 <template>
-    <v-app>
-        <app-header />
+    <a
+        class="skip-link"
+        href="#main"
+    >Skip to content</a>
 
-        <v-main>
-            <app-home />
-            <app-about />
-            <app-resume />
-            <app-skills />
-            <app-footer />
-        </v-main>
-    </v-app>
+    <div
+        class="atmos"
+        aria-hidden="true"
+    >
+        <div class="atmos__grain" />
+        <div class="atmos__baseline" />
+        <div class="atmos__vignette" />
+    </div>
+
+    <folio-rule />
+    <app-nav />
+
+    <main
+        id="main"
+        class="page"
+        tabindex="-1"
+    >
+        <app-hero />
+        <app-about />
+        <app-work />
+        <app-experience />
+        <app-skills />
+        <app-contact />
+    </main>
+
+    <app-footer />
 </template>
 
 <script setup>
-import AppHeader from "./components/AppHeader.vue";
-import AppHome from "./components/AppHome.vue";
-import AppAbout from "./components/AppAbout.vue";
-import AppSkills from "./components/AppSkills.vue";
-import AppFooter from "./components/AppFooter.vue";
-import AppResume from "./components/AppResume.vue";
+import FolioRule from './components/FolioRule.vue';
+import AppNav from './components/AppNav.vue';
+import AppHero from './components/AppHero.vue';
+import AppAbout from './components/AppAbout.vue';
+import AppWork from './components/AppWork.vue';
+import AppExperience from './components/AppExperience.vue';
+import AppSkills from './components/AppSkills.vue';
+import AppContact from './components/AppContact.vue';
+import AppFooter from './components/AppFooter.vue';
 </script>
+
+<style scoped>
+#main:focus-visible { outline: none; }
+</style>

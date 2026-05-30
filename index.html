@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230C0C0D'/%3E%3Crect x='6' y='5' width='2.2' height='22' fill='%23E5484D'/%3E%3Ctext x='13' y='22' font-family='Georgia,serif' font-size='15' fill='%23EDEDED'%3EE%3C/text%3E%3C/svg%3E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emerson Carvalho</title>
+    <meta name="theme-color" content="#0C0C0D" />
+    <meta
+      name="description"
+      content="Emerson Carvalho — software engineer with 8+ years building Laravel & Vue products. MSc in Computer Science (UFRN), with a competitive-programming and multi-objective-optimization background."
+    />
+    <title>Emerson Carvalho — Software Engineer</title>
+
+    <!-- Theme bootstrap: set the stock before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('folio-theme');
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          var theme = stored || (prefersLight ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
-
-  <style>
-      html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 64px;
-      }
-  </style>
 </html>

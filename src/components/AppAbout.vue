@@ -1,107 +1,187 @@
 <template>
-    <v-container id="about">
-        <v-row justify="center">
-            <v-card
-                class="pa-5 mt-5"
-                elevation="0"
-                width="1500"
-            >
-                <v-row>
-                    <v-col
-                        cols="12"
-                        sm="6"
-                        align-self="center"
+    <section
+        id="about"
+        class="folio-section about"
+    >
+        <section-heading
+            folio="01"
+            kicker="About"
+            title="Engineering as authored craft."
+        />
+
+        <div class="about__grid">
+            <div class="about__body">
+                <p
+                    v-reveal
+                    class="reveal about__lead"
+                >
+                    <span
+                        class="about__dropcap"
+                        aria-hidden="true"
+                    >E</span>ight years building software for the
+                    web — currently at <strong>Cloud Plus Plus</strong>, where I
+                    design and ship Laravel and Vue products for customers
+                    across the globe. I hold a BSc and an MSc in Computer Science from
+                    UFRN, where my research centred on multi-objective
+                    optimization and algorithm optimization.
+                </p>
+                <p
+                    v-reveal="80"
+                    class="reveal about__para"
+                >
+                    A competitive-programming background taught me to treat
+                    performance as a first-class feature rather than an
+                    afterthought — to reason about cost, measure honestly, and
+                    let the data settle the argument.
+                </p>
+
+                <blockquote
+                    v-reveal="120"
+                    class="reveal about__quote"
+                >
+                    <span
+                        class="about__quote-rule"
+                        aria-hidden="true"
+                    />
+                    I build systems to be measured, not guessed.
+                </blockquote>
+            </div>
+
+            <aside class="about__aside">
+                <photo-plate
+                    v-reveal
+                    class="reveal"
+                    src="/images/photo.jpg"
+                    alt="Emerson Carvalho"
+                    caption="Fig. 01 — E. Carvalho · RN, BR"
+                />
+
+                <dl class="about__facts">
+                    <div
+                        v-for="(fact, i) in facts"
+                        :key="fact.label"
+                        v-reveal="i * 70"
+                        class="reveal about__fact"
                     >
-                        <div class="text-h6 text-sm-h5  text-md-h4 font-weight-bold mb-5">
-                            About me
-                        </div>
-                        <div class="text-body-1 my-4">
-                            I'm a developer with more than 5 years of experience in web development.
-                            I have a bachelor degree in Computer Science and a master degree on Computer Systems.
-                            During my academic life, one of my hobbies was participating in programming competitions and
-                            solving computational problems.
-                            My end course project was with focus on multi objective optimization and algorithms
-                            optimization
-                        </div>
-                        <div class="text-body-1 my-4">
-                            I have worked with many technologies, such as PHP, Java, Javascript, Typescript, HTML, CSS,
-                            MySQL, C/C++ and more.
-                            Currently I'm focused on web development using Vue.js and Laravel.
-                        </div>
-                        <v-btn
-                            size="small"
-                            variant="tonal"
-                            color="red-darken-1"
-                            href="https://www.linkedin.com/in/emerson-bezerra-de-carvalho-76065ab4/"
-                            target="_blank"
-                        >
-                            Contact me
-                        </v-btn>
-                    </v-col>
-
-                    <v-col cols="12" sm="6">
-                        <v-row class="mt-3">
-                            <v-col
-                                v-for="about in aboutInfo"
-                                :key="about.title"
-                                cols="12"
-                                md="6"
-                            >
-                                <v-hover>
-                                    <template #default="{ isHovering, props }">
-                                        <v-card
-                                            class="mx-auto"
-                                            v-bind="props"
-                                            :prepend-icon="about.icon"
-                                            :elevation="isHovering ? 10 : 2"
-                                        >
-                                            <template #title>
-                                                {{ about.title }}
-                                            </template>
-
-                                            <v-card-text>
-                                                {{ about.text }}
-                                            </v-card-text>
-                                        </v-card>
-                                    </template>
-                                </v-hover>
-                            </v-col>
-                        </v-row>
-                    </v-col>
-                </v-row>
-            </v-card>
-        </v-row>
-    </v-container>
+                        <dt class="about__fact-label">
+                            {{ fact.label }}
+                        </dt>
+                        <dd class="about__fact-value">
+                            <a
+                                v-if="fact.href"
+                                class="link-wipe"
+                                :href="fact.href"
+                            >{{ fact.value }}</a>
+                            <template v-else>
+                                {{ fact.value }}
+                            </template>
+                        </dd>
+                    </div>
+                </dl>
+            </aside>
+        </div>
+    </section>
 </template>
-<script>
-export default {
-    name: 'AppHome',
 
-    data() {
-        return {
-            aboutInfo: [
-                {
-                    title: "E-mail",
-                    text: "carvemerson@gmail.com",
-                    icon: "mdi-email",
-                },
-                {
-                    title: "Location",
-                    text: "São José de Mipibu, RN, Brazil",
-                    icon: "mdi-map-marker",
-                },
-                {
-                    title: "Languages",
-                    text: "Brazilian Portuguese, English",
-                    icon: "mdi-translate",
-                },
-                {
-                    title: "Hobbies",
-                    text: "Ride a bike and play with my kids",
-                    icon: "mdi-gamepad-variant",
-                },
-            ],
-        };
-    },
-};
+<script setup>
+import SectionHeading from './SectionHeading.vue';
+import PhotoPlate from './PhotoPlate.vue';
+
+const facts = [
+    { label: 'Email', value: 'carvemerson@gmail.com', href: 'mailto:carvemerson@gmail.com' },
+    { label: 'Location', value: 'São José de Mipibu, RN, Brazil' },
+    { label: 'Languages', value: 'Portuguese (PT-BR), English' },
+    { label: 'Currently', value: 'Cloud Plus Plus' },
+];
 </script>
+
+<style scoped>
+.about__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.about__body { max-width: var(--measure); }
+
+.about__lead {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+}
+
+.about__dropcap {
+    float: left;
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: 4.6rem;
+    line-height: 0.78;
+    padding: 0.1em 0.14em 0 0;
+    color: var(--accent);
+}
+
+.about__para {
+    margin: 0 0 1.5rem;
+    color: var(--ink-muted);
+}
+
+.about__quote {
+    position: relative;
+    margin: 2.4rem 0 0;
+    padding-top: 1.4rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--fs-quote);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+}
+.about__quote-rule {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 2px;
+    background: var(--accent);
+}
+
+.about__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.about__facts {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.about__fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--hairline);
+}
+.about__fact:last-child { border-bottom: 1px solid var(--hairline); }
+.about__fact-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-muted);
+}
+.about__fact-value {
+    margin: 0;
+    font-size: var(--fs-small);
+    color: var(--ink);
+    word-break: break-word;
+}
+
+@media (max-width: 880px) {
+    .about__grid { grid-template-columns: 1fr; }
+    .about__aside { order: -1; }
+}
+</style>

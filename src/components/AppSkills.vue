@@ -1,87 +1,132 @@
 <template>
-    <v-container id="skills" class="d-flex justify-center">
-        <v-card
-            class="pa-5"
-            width="1500"
-            color="grey-lighten-4"
-        >
-            <v-row>
-                <v-col>
-                    <h1 class="display-1">
-                        Coding Skills
-                    </h1>
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col
-                    v-for="skill in outstandingSkills"
-                    :key="skill.title"
-                    cols="6"
-                    sm="12"
-                    md="6"
-                >
-                    <card-skill
-                        :title="skill.title"
-                        :image="skill.image"
-                        :width="500"
-                        :image-width="100"
-                        :href="skill.href"
-                    />
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col
-                    v-for="skill in skills"
-                    :key="skill.title"
-                    cols="4"
-                    sm="6"
-                    md="3"
-                    lg="2"
-                >
-                    <card-skill
-                        :title="skill.title"
-                        :image="skill.image"
-                        :href="skill.href"
-                    />
-                </v-col>
-            </v-row>
-        </v-card>
-    </v-container>
+    <section
+        id="skills"
+        class="folio-section skills"
+    >
+        <section-heading
+            folio="04"
+            kicker="Skills"
+            title="Set like an index."
+        />
+
+        <div class="skills__core">
+            <skill-mark
+                v-for="skill in core"
+                :key="skill.name"
+                v-reveal
+                class="reveal"
+                :skill="skill"
+                large
+            />
+        </div>
+
+        <div class="skills__groups">
+            <div
+                v-for="group in groups"
+                :key="group.title"
+                v-reveal
+                class="reveal skills__group"
+            >
+                <p class="skills__group-head">
+                    {{ group.title }}
+                    <span
+                        v-if="group.note"
+                        class="skills__group-note"
+                    >{{ group.note }}</span>
+                </p>
+                <ul class="skills__list">
+                    <li
+                        v-for="skill in group.items"
+                        :key="skill.name"
+                    >
+                        <skill-mark :skill="skill" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </template>
-<script>
-import CardSkill from "./CardSkill.vue";
 
-export default {
-    name: 'AppHome',
-    components: {CardSkill},
+<script setup>
+import SectionHeading from './SectionHeading.vue';
+import SkillMark from './SkillMark.vue';
 
-    data: () => {
-        return {
-            outstandingSkills:[
-                {title: "laravel", image: "/images/frameworks/laravel.png", href: "https://laravel.com/"},
-                {title: "vue", image: "/images/frameworks/vuejs.png", href: "https://vuejs.org/"},
-            ],
+const core = [
+    { name: 'Laravel', icon: 'laravel', href: 'https://laravel.com/' },
+    { name: 'Vue', icon: 'vue', href: 'https://vuejs.org/' },
+];
 
-            skills: [
-                {title: "php", image: "/images/frameworks/php.png", href: "https://www.php.net/"},
-                {title: "javascript", image: "/images/frameworks/javascript.png", href: "https://www.javascript.com/"},
-                {title: "HTML", image: "/images/frameworks/html.png", href: "https://developer.mozilla.org/en-US/docs/Web/HTML"},
-                {title: "css", image: "/images/frameworks/css.png", href: "https://developer.mozilla.org/en-US/docs/Web/CSS"},
-                {title: "bootstrap", image: "/images/frameworks/bootstrap.png", href: "https://getbootstrap.com/"},
-                {title: "vuetify", image: "/images/frameworks/vuetify.png", href: "https://vuetifyjs.com/"},
-                {title: "mysql", image: "/images/frameworks/mysql.png", href: "https://www.mysql.com/"},
-                {title: "typescript", image: "/images/frameworks/typescript.png", href: "https://www.typescriptlang.org/"},
-                {title: "c/c++", image: "/images/frameworks/c-plus-plus.png", href: "https://www.cplusplus.com/"},
-                {title: "dart", image: "/images/frameworks/dart.png", href: "https://dart.dev/"},
-                {title: "flutter", image: "/images/frameworks/flutter.png", href: "https://flutter.dev/"},
-                {title: "angular", image: "/images/frameworks/angular.png", href: "https://angular.io/"},
-                {title: "vitejs", image: "/images/frameworks/vitejs.png", href: "https://vitejs.dev/"},
-                {title: "git", image: "/images/frameworks/git.png", href: "https://git-scm.com/"},
-                {title: "github", image: "/images/frameworks/github.png", href: "https://github.com/"},
-                {title: 'firebase', image: "/images/frameworks/firebase.png", href: "https://firebase.google.com/"},
-                {title: "docker", image: "/images/frameworks/docker.webp", href: "https://www.docker.com/"},
-            ],
-        };
+const groups = [
+    {
+        title: 'Languages',
+        note: '// competitive-programming background',
+        items: [
+            { name: 'PHP', icon: 'php', href: 'https://www.php.net/' },
+            { name: 'TypeScript', icon: 'typescript', href: 'https://www.typescriptlang.org/' },
+            { name: 'JavaScript', icon: 'javascript', href: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+            { name: 'C / C++', icon: 'cpp', href: 'https://isocpp.org/' },
+        ],
     },
-};
+    {
+        title: 'Data & Infra',
+        items: [
+            { name: 'MySQL', icon: 'mysql', href: 'https://www.mysql.com/' },
+            { name: 'Docker', icon: 'docker', href: 'https://www.docker.com/' },
+            { name: 'Cloud', icon: 'cloud', href: 'https://cloud.google.com/' },
+        ],
+    },
+    {
+        title: 'Tooling',
+        items: [
+            { name: 'Git', icon: 'git', href: 'https://git-scm.com/' },
+        ],
+    },
+];
 </script>
+
+<style scoped>
+.skills__core {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.skills__groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.skills__group-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1ch;
+    margin: 0 0 1.2rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+}
+.skills__group-note {
+    text-transform: none;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    opacity: 0.85;
+}
+
+.skills__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+</style>

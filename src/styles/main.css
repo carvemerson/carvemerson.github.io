@@ -1,0 +1,447 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THE FOLIO — design tokens
+   Dark = "press run" (primary identity). Light = "proof copy".
+   Every component reads var(--token); the theme is a single
+   [data-theme] attribute flip on <html>.
+   ============================================================ */
+
+:root {
+    /* — backgrounds & surfaces — */
+    --bg-press: #0C0C0D;
+    --bg-stock: #16151A;
+    --bg-stock-2: #1E1C22;
+    --hairline: #2A282F;
+    --hairline-strong: #39363F;
+
+    /* — ink — */
+    --ink: #EDEDED;
+    --ink-muted: #8A8A8A;
+    --ink-faint: #5A585F;
+
+    /* — crimson (the one ink) — */
+    --accent: #E5484D;
+    --accent-hover: #F05B60;
+    --accent-warm: #FF6B4A;
+    --accent-deep: #9B2C30;
+    --accent-quiet: rgba(229, 72, 77, 0.12);
+    --glow: rgba(255, 107, 74, 0.16);
+
+    --status-ok: #5BBF8A;
+    --focus-ring: #FF6B4A;
+
+    --grain-opacity: 0.04;
+    --vignette: rgba(0, 0, 0, 0.55);
+    --duotone-mix: multiply;
+    --duotone-opacity: 0.6;
+
+    /* — type families — */
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-body: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+    /* — fluid type scale (perfect fourth) — */
+    --fs-hero: clamp(3.25rem, 8.5vw, 7.5rem);
+    --fs-h2: clamp(2.25rem, 5vw, 4rem);
+    --fs-h3: clamp(1.5rem, 2.2vw, 2rem);
+    --fs-quote: clamp(1.6rem, 3vw, 2.6rem);
+    --fs-lead: 1.375rem;
+    --fs-body: 1.1875rem;
+    --fs-small: 0.9375rem;
+    --fs-mono: 0.75rem;
+
+    /* — layout — */
+    --rule-x: 6vw;
+    --gap-rule: clamp(1.5rem, 3vw, 4rem);
+    --page-pad-l: calc(var(--rule-x) + var(--gap-rule));
+    --page-pad-r: clamp(1.5rem, 5vw, 6rem);
+    --measure: 62ch;
+    --masthead-h: 4.75rem;
+
+    --ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+[data-theme="light"] {
+    --bg-press: #F4EEE2;
+    --bg-stock: #FCF7EC;
+    --bg-stock-2: #EBE2D2;
+    --hairline: #D7CDBC;
+    --hairline-strong: #BFB29D;
+
+    --ink: #1A1714;
+    --ink-muted: #6B655C;
+    --ink-faint: #8C7F6B;
+
+    --accent: #C0392E;
+    --accent-hover: #A8302A;
+    --accent-warm: #E8552F;
+    --accent-deep: #7A1F22;
+    --accent-quiet: rgba(192, 57, 46, 0.10);
+    --glow: rgba(232, 85, 47, 0.10);
+
+    --status-ok: #2F8F5E;
+    --focus-ring: #C0392E;
+
+    --grain-opacity: 0.05;
+    --vignette: rgba(120, 90, 60, 0.10);
+    --duotone-mix: multiply;
+    --duotone-opacity: 0.4;
+}
+
+/* On small screens the folio rule hugs the viewport's left edge. */
+@media (max-width: 768px) {
+    :root {
+        --rule-x: 0px;
+        --gap-rule: 1.25rem;
+        --page-pad-r: 1.25rem;
+        --masthead-h: 4rem;
+    }
+}
+
+/* Map tokens onto Tailwind's theme so utilities (bg-press, text-ink,
+   text-accent, border-hairline, font-display…) flip with the same vars.
+   `inline` keeps Tailwind referencing the live custom properties. */
+@theme inline {
+    --color-press: var(--bg-press);
+    --color-stock: var(--bg-stock);
+    --color-stock-2: var(--bg-stock-2);
+    --color-hairline: var(--hairline);
+    --color-hairline-strong: var(--hairline-strong);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-faint: var(--ink-faint);
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-accent-warm: var(--accent-warm);
+    --color-accent-deep: var(--accent-deep);
+    --color-status-ok: var(--status-ok);
+
+    --font-display: var(--font-display);
+    --font-body: var(--font-body);
+    --font-mono: var(--font-mono);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--masthead-h) + 1rem);
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--bg-press);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: var(--fs-body);
+        line-height: 1.62;
+        font-optical-sizing: auto;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        transition: background-color 0.48s var(--ease), color 0.48s var(--ease);
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 1.02;
+        margin: 0;
+        text-wrap: balance;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    ::selection {
+        background: var(--accent);
+        color: #fff;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 3px;
+        border-radius: 1px;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-press); }
+    ::-webkit-scrollbar-thumb {
+        background: var(--hairline-strong);
+        border-radius: 999px;
+        border: 2px solid var(--bg-press);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-deep); }
+}
+
+/* ============================================================
+   Cross-cutting helpers
+   ============================================================ */
+.skip-link {
+    position: fixed;
+    top: 0.6rem;
+    left: 0.6rem;
+    z-index: 100;
+    transform: translateY(-160%);
+    padding: 0.7rem 1.1rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border-radius: 2px;
+    transition: transform 0.2s var(--ease);
+}
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline-offset: 2px;
+}
+
+.u-mono {
+    font-family: var(--font-mono);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.u-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-muted);
+}
+
+.u-measure {
+    max-width: var(--measure);
+}
+
+/* horizontal rhythm shared by masthead, sections, footer */
+.u-pad-x {
+    padding-left: var(--page-pad-l);
+    padding-right: var(--page-pad-r);
+}
+
+.folio-section {
+    padding-left: var(--page-pad-l);
+    padding-right: var(--page-pad-r);
+    padding-block: clamp(5rem, 11vh, 9rem);
+    position: relative;
+}
+
+/* link with the signature crimson wipe-underline */
+.link-wipe {
+    position: relative;
+    display: inline;
+    color: inherit;
+    transition: color 0.2s var(--ease);
+}
+.link-wipe::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.26s var(--ease);
+}
+@media (hover: hover) {
+    .link-wipe:hover { color: var(--accent); }
+    .link-wipe:hover::after { transform: scaleX(1); }
+}
+
+/* shared buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6ch;
+    padding: 0.85rem 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.22s var(--ease), color 0.22s var(--ease),
+        border-color 0.22s var(--ease), transform 0.22s var(--ease);
+}
+.btn--primary {
+    background: var(--accent);
+    color: #fff;
+}
+.btn--ghost {
+    border-color: var(--hairline-strong);
+    color: var(--ink);
+}
+@media (hover: hover) {
+    .btn--primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+}
+
+/* ============================================================
+   Atmosphere (mounted once in App.vue, fixed, pointer-events:none)
+   ============================================================ */
+.atmos {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.atmos__grain {
+    position: absolute;
+    inset: 0;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.atmos__baseline {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 31px,
+        var(--hairline) 31px,
+        var(--hairline) 32px
+    );
+    -webkit-mask-image: linear-gradient(to right, black 0, transparent calc(var(--rule-x) + 14rem));
+    mask-image: linear-gradient(to right, black 0, transparent calc(var(--rule-x) + 14rem));
+}
+
+.atmos__vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(140% 60% at 50% -10%, transparent 55%, var(--vignette)),
+        radial-gradient(140% 60% at 50% 110%, transparent 55%, var(--vignette));
+}
+
+/* content sits above the atmosphere */
+.page {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   Motion primitives
+   ============================================================ */
+@keyframes caret-blink {
+    0%, 50% { opacity: 1; }
+    50.001%, 100% { opacity: 0; }
+}
+
+@keyframes rule-draw {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+@keyframes bloom-drift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+    50% { transform: translate3d(2%, -2%, 0) scale(1.06); opacity: 0.82; }
+}
+
+/* scroll reveal (driven by v-reveal directive) */
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 0.6s var(--ease),
+        transform 0.6s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* heading "typeset" clip reveal */
+.clip {
+    overflow: clip;
+    overflow-clip-margin: 0.2em;
+    display: block;
+}
+.clip > * {
+    display: block;
+    transform: translateY(105%);
+    transition: transform 0.7s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+.clip.is-visible > * {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   Theme toggle — the "stock flip" (View Transitions)
+   The new stock wipes in from the left; the folio rule is a named
+   transition that does NOT animate, so it survives the flip.
+   Falls back to the body color crossfade where the API is absent.
+   ============================================================ */
+::view-transition-group(root) { animation-duration: 0.52s; }
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) {
+    animation: stock-wipe 0.52s var(--ease);
+}
+@keyframes stock-wipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+.folio-rule-vt { view-transition-name: folio-rule; }
+::view-transition-group(folio-rule) { animation: none; }
+
+/* ============================================================
+   Reduced motion — first-class
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) { animation: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.12s !important;
+    }
+
+    .reveal,
+    .clip > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .atmos__grain { animation: none !important; }
+}
