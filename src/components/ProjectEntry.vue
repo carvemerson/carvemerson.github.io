@@ -82,9 +82,11 @@ defineProps({
 
 <style scoped>
 .pe {
-    --well-w: clamp(9rem, 24vw, 20rem);
+    --well-w: clamp(9rem, 22vw, 18rem);
     display: grid;
-    grid-template-columns: var(--well-w) minmax(0, 1fr);
+    /* a compact text+thumbnail pair, not a full-bleed row — no central void */
+    grid-template-columns: var(--well-w) minmax(0, 54ch);
+    justify-content: start;
     gap: clamp(1.5rem, 4vw, 3.5rem);
     align-items: center;
     padding: clamp(2rem, 4vw, 3rem) 0;
@@ -92,8 +94,12 @@ defineProps({
 }
 .pe:last-child { border-bottom: 1px solid var(--hairline); }
 
-/* alternating rhythm: swap the columns AND reorder the well */
-.pe--right { grid-template-columns: minmax(0, 1fr) var(--well-w); }
+/* alternating rhythm: mirror the columns and pack to the opposite edge,
+   so the whitespace lands on the outer margin instead of mid-row */
+.pe--right {
+    grid-template-columns: minmax(0, 54ch) var(--well-w);
+    justify-content: end;
+}
 .pe--right .pe__well { order: 2; }
 
 .pe__well {

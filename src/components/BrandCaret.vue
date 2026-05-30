@@ -23,11 +23,12 @@ const solid = computed(() => props.forceSolid || reduced.value);
 <style scoped>
 .caret {
     display: inline-block;
-    width: 0.56em;
-    height: 0.92em;
-    margin-left: 0.14em;
+    width: 0.12em;
+    height: 0.82em;
+    margin-left: 0.16em;
     background: var(--accent);
-    transform: translateY(0.08em);
+    transform: translateY(-0.02em);
+    border-radius: 0.5px;
     /* authentic terminal cadence: hard on/off, no fade */
     animation: caret-blink 1.06s step-end infinite;
 }
