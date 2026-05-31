@@ -52,39 +52,41 @@
             </div>
         </div>
 
-        <transition name="drawer">
-            <div
-                v-if="drawerOpen"
-                class="drawer"
-            >
-                <button
-                    class="drawer__scrim"
-                    type="button"
-                    aria-label="Close contents"
-                    @click="closeDrawer"
-                />
-                <nav
-                    ref="panel"
-                    class="drawer__panel"
-                    aria-label="Contents"
-                    @keydown="onPanelKeydown"
+        <teleport to="body">
+            <transition name="drawer">
+                <div
+                    v-if="drawerOpen"
+                    class="drawer"
                 >
-                    <p class="drawer__head">
-                        Contents
-                    </p>
-                    <a
-                        v-for="link in links"
-                        :key="link.id"
-                        class="drawer__link"
-                        :href="link.href"
+                    <button
+                        class="drawer__scrim"
+                        type="button"
+                        aria-label="Close contents"
                         @click="closeDrawer"
+                    />
+                    <nav
+                        ref="panel"
+                        class="drawer__panel"
+                        aria-label="Contents"
+                        @keydown="onPanelKeydown"
                     >
-                        <span class="drawer__num">{{ link.num }}</span>
-                        <span>{{ link.label }}</span>
-                    </a>
-                </nav>
-            </div>
-        </transition>
+                        <p class="drawer__head">
+                            Contents
+                        </p>
+                        <a
+                            v-for="link in links"
+                            :key="link.id"
+                            class="drawer__link"
+                            :href="link.href"
+                            @click="closeDrawer"
+                        >
+                            <span class="drawer__num">{{ link.num }}</span>
+                            <span>{{ link.label }}</span>
+                        </a>
+                    </nav>
+                </div>
+            </transition>
+        </teleport>
     </header>
 </template>
 
